@@ -1,16 +1,14 @@
 <template>
   <div id="app">
-    hello
+    <!-- url 이 만약  -->
+    <router-view>aa</router-view>
   </div>
 </template>
 
 <script>
 
 export default {
-  methods:{
-    fetchData(){
-    }
-  }
+ 
 }
 </script>
 
