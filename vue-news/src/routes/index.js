@@ -7,7 +7,8 @@ import JobsView from '../views/JobsView.vue'
 Vue.use(VueRouter)
 
 export const router = new VueRouter({
-  routes: [
+    mode:'history',
+    routes: [
       {
           path: '/',
           redirect:'news',
@@ -25,6 +26,6 @@ export const router = new VueRouter({
       {
         path: '/jobs',
         component: JobsView,
-    },
+     },
   ]
 })
