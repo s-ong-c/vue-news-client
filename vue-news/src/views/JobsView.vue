@@ -14,7 +14,9 @@ export default {
     },
     created() {
         fetchJobsList()
-            .then(response=> this.jobs = response.data)
+               
+            .then(response=>{
+                this.jobs = response.data})
             .catch(e=> console.log(e));
     },
 }
