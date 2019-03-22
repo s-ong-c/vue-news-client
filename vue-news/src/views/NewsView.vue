@@ -5,8 +5,6 @@
 </template>
 
 <script>
-import {fetchNewsList} from '../api/index.js'
-import {actions} from '../store/index.js'
 export default {
     data(){
         return{
