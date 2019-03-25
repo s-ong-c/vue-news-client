@@ -8,11 +8,11 @@
                <i class="fas fa-user"/>
             </div>
             <div class="user-description">
-                <router-link :to="`/user/${fetchedItem.user}`">{{fetchedItem.user}}
+                <!-- <router-link :to="`/user/${fetchedItem.user}`">{{fetchedItem.user}}
                 </router-link>
                 <div class="time">
                     {{ fetchedItem.time_ago}}
-                </div>
+                </div> -->
             </div>
         </div>
         <h2>{{fetchedItem.title}}</h2>
