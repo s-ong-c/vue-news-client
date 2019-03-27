@@ -2,6 +2,7 @@ import {
     fetchNewsList,
     fetchJobsList, 
     fetchAskList,
+    fetchList,
     fetchUserInfo,
     fetchCommentItem} from '../api/index.js'
 
@@ -46,6 +47,14 @@ export default{
                 .then(({data})=>{
                     commit('SET_ITEM',data)
                 })
+                .catch(e=>{
+                    console.log(e);
+                })
+         },
+         FETCH_LIST( {commit},pageName){
+            fetchList(pageName)
+                .then( ({data})=>
+                     commit('SET_LIST', data))
                 .catch(e=>{
                     console.log(e);
                 })

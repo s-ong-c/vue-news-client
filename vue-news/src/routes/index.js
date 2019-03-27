@@ -5,6 +5,7 @@ import AskView from '../views/AskView.vue'
 import JobsView from '../views/JobsView.vue'
 import UserView from '../views/UserView.vue'
 import ItemView from '../views/ItemView.vue'
+import createListView from '../views/CreateListView.js'
 Vue.use(VueRouter)
 
 export const router = new VueRouter({
@@ -15,21 +16,20 @@ export const router = new VueRouter({
           redirect:'news',
       },
       { 
-          // path : url주소
           path: '/news',
           name: 'news',
-          // componets: url 주소로 갔을 떄 표시될 컴포넌트 
-          component: NewsView,
+          component: createListView('NewsView')
+        //  component: NewsView,
       },
       {
           path: '/ask',
           name: 'ask',
-          component: AskView,
+          component: createListView('AskView')
       },
       {
         path: '/jobs',
         name: 'jobs',
-        component: JobsView,
+        component: createListView('JobsView')
      },
      {
         path:'/user/:id',
