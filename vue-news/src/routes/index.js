@@ -24,12 +24,14 @@ export const router = new VueRouter({
       {
           path: '/ask',
           name: 'ask',
-          component: createListView('AskView')
+         // component: createListView('AskView')
+         component: AskView,
       },
       {
         path: '/jobs',
         name: 'jobs',
-        component: createListView('JobsView')
+       // component: createListView('JobsView')
+        component: JobsView,
      },
      {
         path:'/user/:id',
