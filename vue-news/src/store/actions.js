@@ -7,32 +7,61 @@ import {
     fetchCommentItem} from '../api/index.js'
 
 export default{
-    FETCH_NEWS({commit}){
-        return  fetchNewsList().
-            then(({data}) => {
-                commit('SET_NEWS',data);
-            })
-            .catch(error =>{
-                console.log(error)
-            })
+    // promise
+    // FETCH_NEWS({commit}){
+    //     return  fetchNewsList().
+    //         then(({data}) => {
+    //             commit('SET_NEWS',data);
+    //         })
+    //         .catch(error =>{
+    //             console.log(error)
+    //         })
+    //     },
+
+    //async
+    async FETCH_NEWS(ctx){
+         const response = await fetchNewsList();
+         ctx.commit('SET_NEWS',response.data);
+
+         return response
         },
-        FETCH_JOBS(ctx){
-            return fetchJobsList().
-                then(response => {
-                    ctx.commit('SET_JOBS',response.data);
-                })
-                .catch(error => {
-                    console.log(error)
-                })
+
+        // promise
+        // FETCH_JOBS(ctx){
+        //     return fetchJobsList().
+        //         then(response => {
+        //             ctx.commit('SET_JOBS',response.data);
+        //         })
+        //         .catch(error => {
+        //             console.log(error)
+        //         })
+        //  },
+         //async
+         async FETCH_JOBS(ctx){
+            try{
+                const response = await fetchJobsList();
+                ctx.commit('SET_JOBS',response.data);
+                return response;     
+            }catch(error){
+                console.log(error)
+            }
          },
-         FETCH_ASK({commit}){
-            return  fetchAskList()
-                .then(({data}) =>{
-                    commit('SET_ASK',data)
-                }).catch(e=>{
-                    console.log(e);
-                })
-         },
+         // promise
+        //  FETCH_ASK({commit}){
+        //     return  fetchAskList()
+        //         .then(({data}) =>{
+        //             commit('SET_ASK',data)
+        //         }).catch(e=>{
+        //             console.log(e);
+        //         })
+        //  },
+        //async
+        async FETCH_ASK(ctx){
+            const response = await fetchAskList();
+            ctx.commit('SET_ASK',response.data);
+
+            return response;
+        },
          FETCH_USER({commit},name){
             return fetchUserInfo(name)
                 .then(({data})=>{
@@ -63,4 +92,14 @@ export default{
                     console.log(e);
                 })
          },
+         async  FETCH_LIST( {commit},pageName){
+             try{
+                const response = await fetchList(pageName);
+                commit('SET_LIST', response.data)
+                return response
+             }
+             catch(error){
+                 console.log(error);
+             }
+         }
 }
